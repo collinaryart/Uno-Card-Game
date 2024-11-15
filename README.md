@@ -1,5 +1,5 @@
 ## Game Overview
-This is the Uno card game, simulated with alogorithms and data structures. Hence, the game rules remain the same (stated below for clarity).
+This is the Uno card game, simulated with alogorithms and data structures. Hence, the game rules remain the same (though they are still listed below for clarity).
 
 ## Rules of the game
 The objective is to be the first player to get rid of all your cards. Each card has a color and a label, and there are special black cards with unique abilities.
