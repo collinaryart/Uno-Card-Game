@@ -25,4 +25,4 @@ The objective is to be the first player to get rid of all your cards. Each card 
 10. A player wins by playing all their cards. Once a player runs out of cards, the game ends immediately and that player is declared the winner. However, if the last play is a Draw Two or Draw Four card, the next player must draw the appropriate number of cards before the game ends.
 
 # Acknowledgements
-Coded as a Monash University assignment. Provided by the Monash Faculty of IT team were the scripts of generic ADT definitions and testcases.
+Coded as a Monash University assignment. Provided by the Monash Faculty of IT team were the scripts of generic ADT definitions, decorators and testcases.
