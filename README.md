@@ -23,3 +23,6 @@ The objective is to be the first player to get rid of all your cards. Each card 
 9. If the Draw Pile is empty, the Discard Pile (except the top card) is shuffled and placed as the new Draw Pile. (Detailed instructions on how to do this are given in Task 4.)
 
 10. A player wins by playing all their cards. Once a player runs out of cards, the game ends immediately and that player is declared the winner. However, if the last play is a Draw Two or Draw Four card, the next player must draw the appropriate number of cards before the game ends.
+
+# Acknowledgements
+Coded as a Monash University assignment. Provided by the Monash Faculty of IT team were the scripts of generic ADT definitions and testcases.
