@@ -1,6 +1,6 @@
 from card import Card
+from data_structures.array_sorted_list import ArraySortedList
 from constants import Constants
-
 
 class Player:
     """
@@ -18,10 +18,12 @@ class Player:
             None
 
         Complexity:
-            Best Case Complexity:
-            Worst Case Complexity:
+            Best Case Complexity: O(1)
+            Worst Case Complexity: O(1)
         """
-        raise NotImplementedError
+        self.name = name
+        self.position = position
+        self.hand = ArraySortedList[Card](Constants.DECK_SIZE)
 
     def add_card(self, card: Card) -> None:
         """
@@ -34,10 +36,11 @@ class Player:
             None
 
         Complexity:
-            Best Case Complexity:
-            Worst Case Complexity:
+            Best Case Complexity: O(log N)
+            Worst Case Complexity: O(N), due to shifting elements during insertion
+            where N is the number of cards in the hand
         """
-        raise NotImplementedError
+        self.hand.add(card)
 
     def play_card(self, index: int) -> Card:
         """
@@ -50,26 +53,27 @@ class Player:
             Card: The card at the given index from the player's hand
 
         Complexity:
-            Best Case Complexity:
-            Worst Case Complexity:
+            Best Case Complexity: O(1)
+            Worst Case Complexity: O(N), due to shifting elements during deletion
+            where N is the number of cards in the hand
         """
-        raise NotImplementedError
+        if index < 0 or index >= len(self.hand):
+            raise IndexError("Index out of range")
+        card = self.hand.delete_at_index(index)
+        return card
 
     def __len__(self) -> int:
         """
         Method to get the number of cards in the player's hand
 
-        Args:
-            None
-
         Returns:
             int: The number of cards in the player's hand
 
         Complexity:
-            Best Case Complexity:
-            Worst Case Complexity:
+            Best Case Complexity: O(1)
+            Worst Case Complexity: O(1)
         """
-        raise NotImplementedError
+        return len(self.hand)
 
     def __getitem__(self, index: int) -> Card:
         """
@@ -82,7 +86,36 @@ class Player:
             Card: The card at the given index from the player's hand
 
         Complexity:
-            Best Case Complexity:
-            Worst Case Complexity:
+            Best Case Complexity: O(1)
+            Worst Case Complexity: O(1)
         """
-        raise NotImplementedError
+        if index < 0 or index >= len(self.hand):
+            raise IndexError("Index out of range")
+        return self.hand[index]
+
+    def __str__(self) -> str:
+        """
+        String representation of the Player object.
+
+        Returns:
+            str: The string representation of the player
+
+        Complexity:
+            Best Case Complexity: O(N)
+            Worst Case Complexity: O(N), where N is the number of cards in the hand
+        """
+        hand_str = ', '.join(str(card) for card in self.hand)
+        return f'Player {self.name} (Position {self.position}): [{hand_str}]'
+
+    def __repr__(self) -> str:
+        """
+        Official string representation of the Player object.
+
+        Returns:
+            str: The string representation of the player
+
+        Complexity:
+            Best Case Complexity: O(N)
+            Worst Case Complexity: O(N), where N is the number of cards in the hand
+        """
+        return self.__str__()
